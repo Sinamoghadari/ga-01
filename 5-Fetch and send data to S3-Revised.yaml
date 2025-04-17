@@ -16,6 +16,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq
 
+      - name : Pull the latest changes before pushing
+        run : |
+          git pull origin main --rebase
+          git push origin main
+
       - name: Fetch data
         run: |
           TIMESTAMP=$(date +%s)
